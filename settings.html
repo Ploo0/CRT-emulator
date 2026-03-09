@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="css/topcoat-desktop-dark.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="js/libs/CSInterface.js" defer></script>
+<script src="js/second.js" defer></script>
+<script src="javascript/javascript.js" defer></script>
+
+<script>
+    
+    var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+
+    if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+
+    function mischandler(){
+    return false;
+    }
+
+    function mousehandler(e){
+    var myevent = (isNS) ? e : event;
+    var eventbutton = (isNS) ? myevent.which : myevent.button;
+    if((eventbutton==2)||(eventbutton==3)) return false;
+    }
+    document.oncontextmenu = mischandler;
+    document.onmousedown = mousehandler;
+    document.onmouseup = mousehandler;
+    
+</script>
+
+<body scroll="no">
+    <!--Loading-->
+    <div id="loadingScreen">
+        <span class="loader"></span>
+    </div>
+
+    <div class="container">
+        <head>	
+            <div class="logoContainer">
+                <img src="LOGO.png" class="imageLogo" id="logo">
+                
+            </div>
+            <div class="strip">
+                <div class="rainbow"></div>
+            </div>
+        </head>
+        
+        
+        <br>
+        
+        <!--Switch -->
+        <style data="test" type="text/css">
+        </style>
+        
+        
+
+        <!--Select types -->
+        <div class="options"  style=" display: flex; width: 90vw;">
+            <div class="text" style="position: relative; margin-left: 0px; margin-right: auto;">Grid Pattern</div>
+            <div class="help" id="help"><span>?</span> </div>
+        </div>
+
+        <div class="types-container">
+            <label class="img"style="height: 20vw;">
+                <input type="checkbox" name="effect" id="crtcheck" checked>
+                <div class="checkmark" id="crtgrid"> <span id="crttxt">Circle</span> </div>
+            </label>
+            
+            <label class="img" style="height: 20vw;"> <span>Unavailable</span>
+                <input type="checkbox" name="effect" id="crtcheck2"> 
+                <div class="checkmark" id="crtgrid2"><span id="crttxt2">Rectangle</span></div>
+            </label>
+        </div>
+        <br><br>
+        
+        <!--Slider 5 - Brightness & Constrast min:-100 default:0 Max:100-->
+        <div class="sliderContainer">
+            <div class="sliderInfos">
+                <div class="text">Exposure Fix</div> 
+                <button class="reset" id="reset5">RESET</button>
+                <div class="sliderValue" id="slidervalue5"> 0</div>
+            </div>
+            <div class="sliderBox">
+                <input type="range" min="-100" max="100" value="0" class="slider" id="range5">
+                <div class="progressBar" id="progress5"></div>
+            </div> 
+        </div>
+
+
+        <!--Slider 1 - Noise Level - Min:0 default:1 Max:3.6-->
+        <div class="sliderContainer">
+            <div class="sliderInfos">
+                <div class="text">Noise Level</div> 
+                <button class="reset" id="reset">RESET</button>
+                <div class="sliderValue" id="slidervalue"> 100</div>
+            </div>
+            <div class="sliderBox">
+                <input type="range" min="0" max="36" value="10" class="slider" id="range">
+                <div class="progressBar" id="progress"></div>
+            </div> 
+        </div>
+
+        <!-- EFFECTS -->
+        <div class="effects-container">
+            <label class="img"style="height: 16vw; width: 100%;">
+                <input type="checkbox" name="effect" id="glitchToggle"> 
+                <div class="checkmark" id="glitchgrid"> <span id="text-center">Glitches</span> </div>
+            </label>
+            
+            <label class="img" id="tvBorder" style="height: 16vw; width: 100%;">
+                <input type="checkbox" name="effect" id="tvToggle">  
+                <div class="checkmark" id="tvgrid"><span id="text-center">TV Borders</span></div>
+            </label>
+        </div>
+        <br>
+
+        <!--Slider 2 - Vibrance min:-22 default:0 Max:100 -->
+        <div class="sliderContainer">
+            <div class="sliderInfos">
+                <div class="text">Vibrance</div> 
+                <button class="reset" id="reset2">RESET</button>
+                <div class="sliderValue" id="slidervalue2"> 100</div>
+            </div>
+            <div class="sliderBox">
+                <input type="range" min="-22" max="100" value="0" class="slider" id="range2">
+                <div class="progressBar" id="progress2"></div>
+            </div> 
+        </div>
+
+        <!--Slider 3 - Sharpness min:0 default:0 Max:200 -->
+        <div class="sliderContainer">
+            <div class="sliderInfos">
+                <div class="text">Sharpness</div> 
+                <button class="reset" id="reset3">RESET</button>
+                <div class="sliderValue" id="slidervalue3"> 100</div>
+            </div>
+            <div class="sliderBox">
+                <input type="range" min="0" max="200" value="0" class="slider" id="range3">
+                <div class="progressBar" id="progress3"></div>
+            </div> 
+        </div>
+
+        <!--Slider 4 - Glow min:0 default:0 Max:1.5-->
+        <div class="sliderContainer">
+            <div class="sliderInfos">
+                <div class="text">Glow</div> 
+                <button class="reset" id="reset4">RESET</button>
+                <div class="sliderValue" id="slidervalue4"> 100</div>
+            </div>
+            <div class="sliderBox">
+                <input type="range" min="0" max="15" value="0" class="slider" id="range4">
+                <div class="progressBar" id="progress4"></div>
+            </div> 
+        </div>
+
+        <!--Slider 6 - Color min:0 default:0 Max:360-->
+        <div class="sliderContainer" id="colorSlider">
+            <div class="sliderInfos">
+                <div class="text">Colorize</div> 
+                <button class="reset" id="reset6">RESET</button>
+                <div class="sliderValue" id="slidervalue6"> 230</div>
+            </div>
+            <div class="sliderBox">
+                <input type="range" min="0" max="360" value="230" class="slider" id="range6">
+                <div id="progress6"></div>
+            </div> 
+        </div>   
+
+        <!--Buttons -->
+        <div class="buttons">
+            <button class="button--outline" id="backButton">BACK<img src="icons/Refresh.svg" id="btnIcon"/> </button>
+            <button class="button--large" id="endButton" style="width: 60%;">COMPLETE <img src="icons/Play.svg" id="btnIcon"/> </button>
+        </div>
+
+        <div class="alert" id="alert">
+            <span id="alertbtn" onclick="this.parentElement.style.display='none';" >&times;</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="css/topcoat-desktop-dark.css"/>
+		<script src="js/libs/CSInterface.js" defer></script>
+		<script src="js/main.js" defer></script>
+			<title>Text Mate</title>
+			
+	<script>
+		
+		var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+		
+		if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+
+		function mischandler(){
+		return false;
+		}
+
+		function mousehandler(e){
+		var myevent = (isNS) ? e : event;
+		var eventbutton = (isNS) ? myevent.which : myevent.button;
+		if((eventbutton==2)||(eventbutton==3)) return false;
+		}
+		document.oncontextmenu = mischandler;
+		document.onmousedown = mousehandler;
+		document.onmouseup = mousehandler;
+		
+	</script>
+
+	<div id="loadingScreen">
+
+	</div>
+
+	<body style="overflow-y:hidden">
+		<div class="container">
+			<head>	
+				<div class="logoContainer">
+					<img src="LOGO.png" class="imageLogo" id="logo">
+				</div>
+
+				<div class="strip">
+					<div class="rainbow"></div>
+				</div>
+			</head>	
+			
+			
+
+			<div class="options">
+
+				<h3>AUTO PREVIEW</h3>
+				<input type="checkbox" id="switch" /> <label id="switch-label" for="switch"></label>
+				
+				<div class="resize">
+					<h3>VIEW RESIZE</h3>
+					<img src="icons/-.svg" class="trigger minus" style="margin-right: 0.5rem;" id="minus"/>
+					<img src="icons/+.svg" class="trigger zoom" id="zoom"/>
+				</div>
+			</div>
+			<div class="line" ></div>
+			<div class="grid-container" id="grid">
+				
+				<label class="img">
+					<input type="radio" checked="checked" name="effect">
+					<div class="checkmark" id="1"><span>Style 1</span></div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="2"><span>Style 2</span></div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect">
+					<div class="checkmark" id="3"><span>Style 3</span>
+						<img src="icons/Black.svg" class="icon black"> <span class="tooltiptext">Black Background Only</span> </img> </div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="4"><span>Style 4</span></div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="5"><span>Style 5</span>
+						<img src="icons/Black.svg" class="icon black"> <span class="tooltiptext">Black Background Only</span> </img> </div>
+				</label>
+					
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="6"><span>Style 6</span></div>
+				</label>
+				
+				<label class="img">
+					<input type="radio" name="effect">
+					<div class="checkmark" id="7"><span>Style 7</span> </div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="8"><span>Style 8</span></div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect">
+					<div class="checkmark" id="9"><span>Style 9</span>
+						<img src="icons/Transparent.svg" class="icon transparent"> <span class="tooltiptext">Transparent Background Only</span>  </img></div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="10"><span>Style 10</span></div>
+				</label>
+				  
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="11"><span>Style 11</span></div>
+				</label>
+					
+				<label class="img">
+					<input type="radio" name="effect"> 
+					<div class="checkmark" id="12"><span>Style 12</span>
+						<img src="icons/Transparent.svg" class="icon transparent"> <span class="tooltiptext">Transparent Background Only</span>  </img></div>
+				</label>
+			</div>
+			<br>
+			<div class="text--center" >
+				Please select a layer in a composition
+			</div>
+				
+			<div class="field" id="layerName">Layer Name</div>
+			<button id="addButton" class="button--large" style="margin-bottom: 1.25rem;">APPLY EFFECT <img src="icons/check.svg" id="btnIcon"/></button>
+				
+			<div class="alert" id="alert">
+				<span id="alertbtn" onclick="this.parentElement.style.display='none';" >&times;</span>
+			</div>
+
+		</div>
+
+
+	</body>	
+</html>
